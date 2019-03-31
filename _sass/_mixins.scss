@@ -55,6 +55,14 @@
 	}
 }
 
+@mixin h1-font-family()
+{
+        font-family: "Poiret One", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@mixin base-font()
+{
+        font-family: 'Quicksand', 'Helvetica Neue', Arial, sans-serif;
+}
 @mixin sans-serif-font()
 {
 	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
