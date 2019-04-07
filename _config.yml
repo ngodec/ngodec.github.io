@@ -16,20 +16,26 @@
 title: Photography by Natalie G
 email: contact@ngodec.com
 description: | # this means to ignore newlines until "baseurl:"
-    Hi there! My name is Natalie, I'm based in London and am in love with cities and urban photography.
-    When I first started doing portraiture, I found it stunning how, contrary to architecture, human beings are incredibly diverse and changing with every moment. It opens a potential for so many beautiful images, each of them full of unique character.
-    So let's create your story together.
+    The scent of the city and your best portrait. London based photographer.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://ngodec.com" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
-#github_username:  jekyll
+facebook_username:  ouvessvit
 instagram_username: ouvessvit
+
+social:
+  name: Natalie G
+  links:
+    - https://www.instagram.com/ouvessvit/
+    - https://www.facebook.com/ouvessvit/
 
 # Build settings
 markdown: kramdown
-theme: minima
+#theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
