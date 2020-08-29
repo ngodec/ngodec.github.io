@@ -219,9 +219,8 @@ aside {
     text-align: center;
     color: white;
     text-align: center;
-    padding: 50px 15px 0px;
+    padding: 50px 15px 10px;
     width: 100%;
-    height: 200px;
     overflow: hidden;
     h1 {
         font-weight: 700;
@@ -230,7 +229,25 @@ aside {
         margin-bottom: 0;
     }
     @media (min-width: 768px) {
-        .header-gallery {
+        min-height: 100%;
+        .header-content {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 0 50px;
+            .header-content-inner {
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                p {
+                    font-size: 18px;
+                    max-width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
         }
     }
 }
@@ -263,53 +280,26 @@ aside {
     }
 }
 
-.grid-gallery {
-    width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(3, calc(100% / 3));
-    grid-template-rows: repeat(8, 5vw);
-    grid-gap: 5px;
-    .gallery__img {
-        display: block;
-        width: calc(100% / 3);
-        height: auto;
-        object-fit: cover;
-    }
-    .gallery__item--0 {
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
-    .gallery__item--1 {
-        grid-column-start: 2;
-        grid-column-end: 3;
-    }
-    .gallery__item--2 {
-        grid-column-start: 3;
-        grid-column-end: 4;
-    }
-}
-
 .new-grid-gallery {
     width: 100%;
     margin: 0;
-    padding: 0 2%;
+    padding: 0 1%;
     position: relative;
     .gallery-row {
       width: 99%;
       display: flex;
       flex-wrap: wrap;
-      padding: 0 2% 0 4%;
     }
 
     /* Create two equal columns that sits next to each other */
     .gallery-column {
       flex: 27%;
-      padding: 0 4px;
+      padding: 2px;
     }
 
     .gallery-column a img {
       max-width: 100%;
-      margin-top: 8px;
+      margin: 2px;
       vertical-align: middle;
     }
 
