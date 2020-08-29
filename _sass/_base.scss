@@ -241,9 +241,12 @@ aside {
     padding: 0;
     position: relative;
     float: center;
+    white-space: nowrap;
     img {
         position: relative;
         width: 100%;
+        display: inline-block;
+        vertical-align: middle;
     }
     li {
         overflow: hidden;
