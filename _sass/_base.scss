@@ -149,7 +149,7 @@ aside {
 
 // Homepage Header
 
-header {
+.main-header {
     position: relative;
     width: 100%;
     min-height: auto;
@@ -211,7 +211,6 @@ header {
     position: relative;
     width: 100%;
     min-height: auto;
-    @include background-cover;
     background-position: center;
     background-color: #c2908f; /* For browsers that do not support gradients */
     background-image: linear-gradient(to top right, #c2908f, #5e636f);
@@ -256,7 +255,7 @@ header {
 .new-grid-gallery {
     width: 100%;
     margin: 0;
-    padding: 0 1%;
+    padding: 0 4%;
     position: relative;
     .gallery-row {
       width: 99%;
