@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -235,33 +236,88 @@ aside {
 }
 
 .image-gallery {
-    overflow: auto;
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 6%;
     position: relative;
-    float: center;
-    img {
-        position: relative;
-        width: 100%;
-    }
-    li {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: normal;
+    align-content: center;
+    height: 150vh;
+    .image-gallery-link-container {
+        width: calc(100% / 3);
+        flex-grow: 1;
+        flex-shrink: 2;
+        display: inline-flex;
         overflow: hidden;
-        float: left;
-        display: block;
-        margin: 0 0;
+        align-items: normal;
     }
-    li a {
-        text-align: center;
-        text-decoration: none!important;
-        color: #777;
-        width: 100%;
-        height: 100%;
+    .image-gallery-link-container img { 
+        max-width: 100%;
+        flex-grow: 2;
     }
     a:hover {
         opacity: 0.7;
     }
 }
+
+.grid-gallery {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(3, calc(100% / 3));
+    grid-template-rows: repeat(8, 5vw);
+    grid-gap: 5px;
+    .gallery__img {
+        display: block;
+        width: calc(100% / 3);
+        height: auto;
+        object-fit: cover;
+    }
+    .gallery__item--0 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .gallery__item--1 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .gallery__item--2 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+}
+
+.new-grid-gallery {
+    width: 100%;
+    margin: 0;
+    padding: 0 2%;
+    position: relative;
+    .gallery-row {
+      width: 99%;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 2% 0 4%;
+    }
+
+    /* Create two equal columns that sits next to each other */
+    .gallery-column {
+      flex: 27%;
+      padding: 0 4px;
+    }
+
+    .gallery-column a img {
+      max-width: 100%;
+      margin-top: 8px;
+      vertical-align: middle;
+    }
+
+    .gallery-column a:hover {
+        opacity: 0.7;
+    }
+}
+
 
 // Sections
 

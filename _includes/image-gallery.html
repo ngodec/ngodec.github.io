@@ -1,8 +1,43 @@
-{% assign diff= 43 | minus: 19 %}
-
-
-<ul class="image-gallery">{% for file in site.static_files %}{% if file.path contains include.folder %}{% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname == '.JPEG' %}
-{% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: 19 %}{% assign filenameparts = file.path | split: "/" %}{% assign filename = filenameparts | last | replace: file.extname,"" %}<li style="width: {{ randomNumber }}%; height: 250px;"><a href="{{ file.path | relative_url }}" title="{{ filename }}"><img src="./{{ file.path }}" alt="{{ filename }}" title="{{ filename }}" /></a></li>{% endif %}{% endif %}{% endfor %}</ul>
+{% assign ind=1 -%}
+{% assign column1="" -%}
+{% assign column2="" -%}
+{% assign column3="" -%}
+{% for file in site.static_files %}{% if file.path contains include.folder -%}{% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname == '.JPEG' -%}
+	{% assign mod= ind| modulo: 3 %}
+	{% if mod == 1 -%}
+		{% capture column1 -%}{{ column1 }};{{ file.path }}{% endcapture -%}
+	{% elsif mod == 2 -%}
+		{% capture column2 -%}{{ column2 }};{{ file.path }}{% endcapture -%}
+	{% elsif mod == 0 -%}
+		{% capture column3 -%}{{ column3 }};{{ file.path }}{% endcapture -%}
+	{% endif -%}
+{% assign ind= ind | plus: 1 %}
+{% endif %}{% endif %}{% endfor %}
+{% assign column1= column1| split: ";" -%}
+{% assign column2= column2| split: ";" -%}
+{% assign column3= column3| split: ";" -%}
+<div class="new-grid-gallery">
+<div class="gallery-row">
+	<div class="gallery-column">
+        {% for file in column1 -%}
+        {% assign filenameparts = file | split: "/" %}{% assign filename = filenameparts | last | replace: file.extname,"" -%}
+        <a class="lightbox-image" href="{{ file | relative_url }}" title="{{ filename }}"><img src="./{{ file }}" alt="{{ filename }}" title="{{ filename }}" /></a>
+        {% endfor -%}
+	</div>
+	<div class="gallery-column">
+		{% for file in column2 -%}
+        {% assign filenameparts = file | split: "/" %}{% assign filename = filenameparts | last | replace: file.extname,"" -%}
+        <a class="lightbox-image" href="{{ file | relative_url }}" title="{{ filename }}"><img src="./{{ file }}" alt="{{ filename }}" title="{{ filename }}" /></a>
+        {% endfor -%}
+	</div>
+	<div class="gallery-column">
+		{% for file in column3 -%}
+        {% assign filenameparts = file | split: "/" %}{% assign filename = filenameparts | last | replace: file.extname,"" -%}
+        <a class="lightbox-image" href="{{ file | relative_url }}" title="{{ filename }}"><img src="./{{ file }}" alt="{{ filename }}" title="{{ filename }}" /></a>
+        {% endfor -%}
+	</div>
+</div>
+</div>
 <script type="text/javascript" src="/js/lightbox.js"></script>
 <link rel="stylesheet" href="/css/lightbox.css">
 </body>
