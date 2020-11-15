@@ -263,6 +263,17 @@ aside {
     }
 }
 
+.mapdiv-outer {
+    width: 60%;
+    max-width: 1200px;
+    height: 450px;
+    margin: 0 auto;
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 300px;
+    }
+}
+
 // Gallery header
 
 .header-gallery {
@@ -311,7 +322,7 @@ aside {
 // Grid gallery
 
 .new-grid-gallery {
-    //width: 100%;
+    width: 100%;
     margin: 0 auto;
     padding: 0 4%;
     position: relative;

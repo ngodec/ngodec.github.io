@@ -19,7 +19,7 @@
 {% assign column1= column1| split: ";" -%}
 {% assign column2= column2| split: ";" -%}
 {% assign column3= column3| split: ";" -%}
-<div class="new-grid-gallery" style="width: {{ page.gallery-width|default: '100%' }}">
+<div class="new-grid-gallery" style="{{ page.gallery-style-override }}">
 <div class="gallery-row">
 	<div class="gallery-column">
         {% for file in column1 -%}
