@@ -1,0 +1,60 @@
+{% assign ind=1 -%}
+{% assign column1="" -%}
+{% assign column2="" -%}
+{% assign column3="" -%}
+{% for file in site.static_files %}{% if file.path contains include.folder -%}{% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname == '.JPEG' -%}
+	{% assign mod= ind| modulo: 3 %}
+	{% if ind == 1 -%}{% assign column1=file.path -%}
+	{% elsif ind == 2 -%}{% assign column2=file.path -%}
+	{% elsif ind == 3 -%}{% assign column3=file.path -%}
+	{% elsif mod == 1 -%}
+		{% capture column1 -%}{{ column1 }};{{ file.path }}{% endcapture -%}
+	{% elsif mod == 2 -%}
+		{% capture column2 -%}{{ column2 }};{{ file.path }}{% endcapture -%}
+	{% elsif mod == 0 -%}
+		{% capture column3 -%}{{ column3 }};{{ file.path }}{% endcapture -%}
+	{% endif -%}
+{% assign ind= ind | plus: 1 %}
+{% endif %}{% endif %}{% endfor %}
+{% assign column1= column1| split: ";" -%}
+{% assign column2= column2| split: ";" -%}
+{% assign column3= column3| split: ";" -%}
+<h2 style="text-align: center;"><br>
+This city is unique in its diversity, in its ability to welcome everyone.<br><br>
+This is a photography project aiming to illuminate and celebrate who Londoners truly are.<br>
+Can we go on a world tour without leaving the city?</p>
+</h2>
+<p style="text-align: center;">Click on each photo to reveal the country <img style="height: 20px;" src="./img/icons/sparkles.png"></p>
+<br><br>
+<div class="new-grid-gallery" style="{{ page.gallery-style-override }}">
+<div class="gallery-row">
+	<div class="gallery-column">
+        {% for file in column1 -%}
+        {% assign filenameparts = file | split: "/" %}{% assign filename = filenameparts | last | split: "-" | last | remove: ".jpg" -%}
+        <div class="weareldners_image_wrap">
+        <a data-lightbox="lightbox" data-title="{{ filename }}" href="{{ file | relative_url }}" title="{{ filename }}"><img src="./{{ file }}" alt="{{ filename }}" title="{{ filename }}" /></a>
+        <a class="weareldners_image_description" href="{{ file | relative_url }}">{{ filename | split: ":: " | last }}</a>
+	    </div>
+        {% endfor -%}
+	</div>
+	<div class="gallery-column">
+        {% for file in column2 -%}
+        {% assign filenameparts = file | split: "/" %}{% assign filename = filenameparts | last | split: "-" | last | remove: ".jpg" -%}
+        <div class="weareldners_image_wrap">
+        <a data-lightbox="lightbox" data-title="{{ filename }}" href="{{ file | relative_url }}" title="{{ filename }}"><img src="./{{ file }}" alt="{{ filename }}" title="{{ filename }}" /></a>
+        <a class="weareldners_image_description" href="{{ file | relative_url }}">{{ filename | split: ":: " | last }}</a>
+	    </div>
+        {% endfor -%}
+	</div>
+	<div class="gallery-column">
+        {% for file in column3 -%}
+        {% assign filenameparts = file | split: "/" %}{% assign filename = filenameparts | last | split: "-" | last | remove: ".jpg" -%}
+        <div class="weareldners_image_wrap">
+        <a data-lightbox="lightbox" data-title="{{ filename }}" href="{{ file | relative_url }}" title="{{ filename }}"><img src="./{{ file }}" alt="{{ filename }}" title="{{ filename }}" /></a>
+        <a class="weareldners_image_description" href="{{ file | relative_url }}">{{ filename | split: ":: " | last }}</a>
+	    </div>
+        {% endfor -%}
+	</div>
+</div>
+</div>
+<script src="js/lightbox.js"></script>
