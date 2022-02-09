@@ -213,7 +213,7 @@ aside {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header-weareldners.jpg');
+    background-image: url('../img/IMG_4629-2.jpg');
     text-align: center;
     color: white;
     .header-content {
@@ -235,12 +235,11 @@ aside {
                 font-weight: 300;
                 color: rgba(white, .7);
                 font-size: 16px;
-                margin-bottom: 50px;
             }
         }
     }
     @media (min-width: 768px) {
-        min-height: 70%;
+        min-height: 25%;
         .header-content {
             position: absolute;
             top: 50%;
@@ -345,7 +344,54 @@ aside {
     }
 
     .gallery-column a:hover {
-        opacity: 0.7;
+      opacity: 0.7;
+    }
+
+    .weareldners_image_wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .weareldners_image_description {
+      position: absolute;
+      font-family: "Poiret One", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+      font-weight: bolder;
+      font-size: 35px;
+      bottom: 0;
+      left: 10%;
+      background: none;
+      color: #fff;
+      visibility: hidden;
+      opacity: 0;
+
+      /* transition effect. not necessary */
+      transition: opacity .2s, visibility .2s;
+    }
+
+    .weareldners_image_wrap:hover .weareldners_image_description {
+      visibility: visible;
+      opacity: 1;
+      font-size: 35px;
+    }
+
+    @media screen and (max-width: 800px) {
+      .weareldners_image_description {
+        visibility: visible;
+        opacity: 100;
+      }
+      a.weareldners_image_description {
+        font-size: 20px;
+      }
+    }
+
+    @media screen and (min-width: 800px) and (max-width: 1200px) {
+      .weareldners_image_description {
+        visibility: visible;
+        opacity: 100;
+      }
+      a.weareldners_image_description {
+        font-size: 35px;
+      }
     }
 }
 
